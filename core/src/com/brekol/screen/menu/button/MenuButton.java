@@ -1,6 +1,6 @@
 package com.brekol.screen.menu.button;
 
-import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 
@@ -9,12 +9,21 @@ import com.badlogic.gdx.graphics.g2d.Batch;
  */
 public class MenuButton extends AbstractMenuButton {
 
-    Texture texture = new Texture(Gdx.files.internal("gfx/menu/menu_exit.png"));
+    private Texture texture;
+
+    public MenuButton(final AssetManager assetManager, final String pathToResource) {
+        super(assetManager);
+        initialize(pathToResource);
+    }
+
+    private void initialize(final String pathToResource) {
+        texture = assetManager.get(pathToResource, Texture.class);
+    }
 
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         super.draw(batch, parentAlpha);
-        batch.draw(texture,0,0);
+        batch.draw(texture, 0, 0);
     }
 }

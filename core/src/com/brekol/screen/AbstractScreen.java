@@ -2,6 +2,7 @@ package com.brekol.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -17,9 +18,13 @@ public abstract class AbstractScreen implements Screen {
 
     final protected Viewport viewport = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
     final protected Stage stage = new Stage();
+    final protected AssetManager assetManager;
 
     final protected SpriteBatch spriteBatch = new SpriteBatch();
 
+    protected AbstractScreen(AssetManager assetManager) {
+        this.assetManager = assetManager;
+    }
 
 
     @Override
