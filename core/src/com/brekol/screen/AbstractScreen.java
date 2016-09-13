@@ -17,7 +17,7 @@ public abstract class AbstractScreen implements Screen {
 
 
     final protected Viewport viewport = new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-    final protected Stage stage = new Stage();
+    final protected Stage stage = new Stage(viewport);
     final protected AssetManager assetManager;
 
     final protected SpriteBatch spriteBatch = new SpriteBatch();

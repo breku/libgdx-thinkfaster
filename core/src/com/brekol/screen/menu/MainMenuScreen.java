@@ -2,10 +2,11 @@ package com.brekol.screen.menu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Texture;
 import com.brekol.screen.AbstractScreen;
-import com.brekol.screen.menu.button.MenuButton;
+import com.brekol.screen.menu.button.ExitButton;
 
-import static com.brekol.util.ThinkFasterConstants.MENU_BUTTON_EXIT_PATH;
+import static com.brekol.util.ThinkFasterConstants.BLACKBOARD_BACKGROUND_PATH;
 
 /**
  * Created by brekol on 10.09.16.
@@ -13,7 +14,8 @@ import static com.brekol.util.ThinkFasterConstants.MENU_BUTTON_EXIT_PATH;
 public class MainMenuScreen extends AbstractScreen {
 
 
-    private MenuButton startGameButton = new MenuButton(assetManager, MENU_BUTTON_EXIT_PATH);
+    private ExitButton exitButton = new ExitButton(assetManager);
+    private Texture background = assetManager.get(BLACKBOARD_BACKGROUND_PATH, Texture.class);
 
     public MainMenuScreen(AssetManager assetManager) {
         super(assetManager);
@@ -22,15 +24,16 @@ public class MainMenuScreen extends AbstractScreen {
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
-
-
-        stage.addActor(startGameButton);
-
+        stage.addActor(exitButton);
     }
 
     @Override
     public void render(float delta) {
         super.render(delta);
+        spriteBatch.begin();
+        spriteBatch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        spriteBatch.end();
+
         spriteBatch.begin();
         stage.draw();
         spriteBatch.end();

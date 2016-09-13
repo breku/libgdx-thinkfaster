@@ -12,5 +12,6 @@ public abstract class AbstractMenuButton extends Actor {
 
     protected AbstractMenuButton(AssetManager assetManager) {
         this.assetManager = assetManager;
+
     }
 }
