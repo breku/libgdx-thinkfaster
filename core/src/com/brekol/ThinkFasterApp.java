@@ -14,10 +14,10 @@ public class ThinkFasterApp extends Game {
 
     private final AssetManager assetManager = new AssetManager();
 
+    private boolean isScreenSet = false;
+
     @Override
     public void create() {
-
-        Gdx.input.setInputProcessor(null);
         assetManager.load(MENU_BUTTON_EXIT_PATH, Texture.class);
         assetManager.load(BLACKBOARD_BACKGROUND_PATH, Texture.class);
 
@@ -27,8 +27,9 @@ public class ThinkFasterApp extends Game {
     @Override
     public void render() {
         super.render();
-        if (assetManager.update()) {
+        if (assetManager.update() && !isScreenSet) {
             setScreen(new MainMenuScreen(assetManager));
+            isScreenSet = true;
         }
     }
 

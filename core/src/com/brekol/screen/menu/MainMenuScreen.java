@@ -23,8 +23,9 @@ public class MainMenuScreen extends AbstractScreen {
 
     @Override
     public void show() {
-        Gdx.input.setInputProcessor(stage);
         stage.addActor(exitButton);
+        Gdx.input.setInputProcessor(stage);
+
     }
 
     @Override
@@ -35,9 +36,12 @@ public class MainMenuScreen extends AbstractScreen {
         spriteBatch.end();
 
         spriteBatch.begin();
+        stage.act(delta);
         stage.draw();
         spriteBatch.end();
     }
+
+
 
     @Override
     public void resize(int width, int height) {
