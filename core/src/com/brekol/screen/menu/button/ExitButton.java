@@ -22,9 +22,11 @@ public class ExitButton extends AbstractMenuButton {
 
         addListener(new InputListener() {
 
+
+            // touchDown has to return true to touchUp fire
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                Gdx.app.log(TAG, "touch down");
+                Gdx.app.log(TAG, String.format("touch down at position x=%s y=%s", x, y));
                 return true;
             }
 
@@ -43,6 +45,7 @@ public class ExitButton extends AbstractMenuButton {
         int y = Gdx.graphics.getHeight() / 5;
         bitmapFont.draw(batch, "Exit", x, y);
     }
+
 
     @Override
     public void act(float delta) {
