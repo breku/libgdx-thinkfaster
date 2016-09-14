@@ -1,13 +1,12 @@
 package com.brekol;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.brekol.screen.menu.MainMenuScreen;
 
-import static com.brekol.util.ThinkFasterConstants.BLACKBOARD_BACKGROUND_PATH;
-import static com.brekol.util.ThinkFasterConstants.MENU_BUTTON_EXIT_PATH;
+import static com.brekol.util.ThinkFasterConstants.*;
 
 public class ThinkFasterApp extends Game {
 
@@ -18,11 +17,15 @@ public class ThinkFasterApp extends Game {
 
     @Override
     public void create() {
-        assetManager.load(MENU_BUTTON_EXIT_PATH, Texture.class);
         assetManager.load(BLACKBOARD_BACKGROUND_PATH, Texture.class);
+        assetManager.load(FONT_PATH, BitmapFont.class);
+        assetManager.load(FONT_BOLD_PATH, BitmapFont.class);
 
     }
 
+    @Override
+    public void dispose() {
+    }
 
     @Override
     public void render() {
@@ -31,9 +34,5 @@ public class ThinkFasterApp extends Game {
             setScreen(new MainMenuScreen(assetManager));
             isScreenSet = true;
         }
-    }
-
-    @Override
-    public void dispose() {
     }
 }

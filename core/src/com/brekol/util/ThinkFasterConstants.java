@@ -5,9 +5,14 @@ package com.brekol.util;
  */
 public class ThinkFasterConstants {
 
-    public static final String MENU_BUTTON_EXIT_PATH = "gfx/menu/menu_exit.png";
 
     public static final String BLACKBOARD_BACKGROUND_PATH = "gfx/common/blackboard.jpg";
+
+
+    public static final String FONT_PATH = "font/font.fnt";
+
+
+    public static final String FONT_BOLD_PATH = "font/font-bold.fnt";
 
 
 }
